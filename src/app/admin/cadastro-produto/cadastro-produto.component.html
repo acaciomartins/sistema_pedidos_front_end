@@ -1,0 +1,44 @@
+<div class="container">
+    <form #formulario="ngForm">
+        <div class="form-group">
+            <label for="categoriaSelect">Categoria</label>
+            <select class="form-control" id="categoria" name="categoria" ngModel #categoria="ngModel" required categoria
+                [ngClass]="{'is-invalid': categoria.touched && categoria.invalid}">
+                <option value="0">Sanduiche</option>
+                <option value="1">Bebida</option>
+            </select>
+
+        </div>
+        <div class="form-group">
+            <label for="nomeProduto">Nome produto</label>
+            <input type="nomeProduto" class="form-control" id="nomeProduto" name="nomeProduto" ngModel
+                #nomeProduto="ngModel" required nomeProduto
+                [ngClass]="{'is-invalid': nomeProduto.touched && nomeProduto.invalid}"
+                placeholder="Digite o nome do produto">
+        </div>
+
+        <div class="form-group">
+            <label for="valorUnitario">Valor unitário</label>
+            <input type="number" class="form-control" id="valorUnitario" name="valorUnitario" ngModel
+                #valorUnitario="ngModel" required valorUnitario
+                [ngClass]="{'is-invalid': valorUnitario.touched && valorUnitario.invalid}"
+                placeholder="Digite o valor unitário">
+        </div>
+
+        <div class="form-group">
+            <label for="descricaoProduto">Descrição</label>
+            <textarea class="form-control" id="descricaoProduto" rows="3" name="descricaoProduto" ngModel
+                #descricaoProduto="ngModel" descricaoProduto placeholder="Digite a descrição"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="file" name="imageInput" #imageInput (change)="processFile(imageInput)" />
+        </div>
+        <div class="form-row ">
+            <button type="reset " class="btn btn-secondary btn-lg btn-block ">Limpar</button>
+            <!-- <input type="submit" class="btn btn-primary btn-lg btn-block" value="Salvar"> -->
+            <button type="button" class="btn btn-secondary btn-lg btn-block"
+                (click)="cadastrar(formulario)">Salvar</button>
+            <button type="button " class="btn btn-primary btn-lg btn-block " (click)="voltar() ">Voltar</button>
+        </div>
+    </form>
+</div>

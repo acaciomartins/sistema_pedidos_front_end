@@ -1,0 +1,54 @@
+<div *ngIf='aviso'>
+    <div class="modal-header">
+        <h4 class="modal-title">{{my_modal_title}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click ')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p> {{my_modal_content}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click ')">Fechar</button>
+    </div>
+</div>
+<div *ngIf='!aviso'>
+    <div class="modal-header">
+        <h4 class="modal-title">Seu pedido</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click ')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Qtd.</th>
+                    <th scope="col">R$ Unitário</th>
+                    <th scope="col">Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let produto of pedido; let i = index">
+                    <th scope="row ">{{ i+1 }}</th>
+                    <td>{{ produto.nome_produto }}</td>
+                    <td>{{ produto.quantidade_produto }}</td>
+                    <td>{{ produto.preco_produto | number : '1.2-2'}}</td>
+                    <td>{{ produto.quantidade_produto * produto.preco_produto | number : '1.2-2' }}</td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td colspan="3">Total:</td>
+                    <td>{{ valorTotal | number : '1.2-2' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click ')">Cancelar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="salvarPedido(this, pedido, valorTotal)">Finalizar
+            pedido</button>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="../../assets/images/logo.png" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+            <div class="form-group">
+                <input type="text" id="nome" class="fadeIn second" name="nome" placeholder="Digite seu nome" ngModel
+                    #nome="ngModel" required nome [ngClass]="{'is-invalid': nome.touched && nome.invalid}">
+                <div class="invalid-feedback" *ngIf="formulario.submitted && nome.invalid">
+                    Por favor, informe um nome válido.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="celular" class="fadeIn third" name="celular"
+                    placeholder="Digite o número do seu celular" ngModel #celular="ngModel" required celular
+                    [ngClass]="{'is-invalid': celular.touched && celular.invalid}">
+                <div class="invalid-feedback" *ngIf="formulario.submitted && nome.invalid">
+                    Por favor, informe um Número de Celular válido.
+                </div>
+            </div>
+            <!-- <input type="submit" class="fadeIn fourth" value="Entrar" [disabled]="formulario.invalid"> -->
+            <input type="submit" class="fadeIn fourth" value="Entrar">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <!-- <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+ -->
+    </div>
+</div>

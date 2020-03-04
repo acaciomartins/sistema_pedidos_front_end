@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="nome">Cliente: </label>
+            <input type="text" readonly class="form-control" id="nome" value="{{ pedido.cliente.nome_cliente }}">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="celular">Número Celular: </label>
+            <input type="text" readonly class="form-control" id="celular" value="{{ pedido.cliente.telefone_cliente }}">
+        </div>
+        <div class="form-group col-md-4">
+            <label for="celular">Senha: </label>
+            <input type="text" readonly class="form-control" id="senha" value="{{ pedido.senha_pedido }}">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <h3>Pedido</h3>
+    </div>
+
+    <div class="form-row">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Produto</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">R$ Unitário</th>
+                    <th scope="col">Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let produto of pedido.produtos; let i = index">
+                    <th scope="row ">{{ i+1 }}</th>
+                    <td>{{ produto.nome_produto }}</td>
+                    <td>{{ produto.pedidoProduto.quantidade }}</td>
+                    <td>{{ produto.preco_produto | number : '1.2-2'}}</td>
+                    <td>{{ produto.pedidoProduto.quantidade * produto.preco_produto | number : '1.2-2' }}</td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td colspan="3">Total:</td>
+                    <td>{{ pedido.valor_total | number : '1.2-2' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="form-row ">
+        <button type="button " *ngIf="btnIniciar " class="btn btn-secondary btn-lg btn-block " (click)="iniciarPedido() ">Iniciar</button>
+        <button type="button " *ngIf="btnChamarSenha " class="btn btn-primary btn-lg btn-block " (click)="chamarNome() ">Chamar nome</button>
+        <button type="button " *ngIf="btnEntregar " class="btn btn-primary btn-lg btn-block " (click)="entregarPedido() ">Entregar</button>
+        <button type="button " class="btn btn-primary btn-lg btn-block " (click)="voltar() ">Voltar</button>
+    </div>
+
+</div>

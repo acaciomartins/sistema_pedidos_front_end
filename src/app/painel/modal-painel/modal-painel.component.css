@@ -1,0 +1,19 @@
+span {
+    font-size: 25px;
+    font-family: cursive;
+    color: red;
+    animation: blink 1s linear infinite;
+    font-size: 150pt;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
