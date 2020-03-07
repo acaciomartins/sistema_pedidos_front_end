@@ -1,10 +1,11 @@
 <div class="container">
+    <h1 style="color: blue; text-align: center; margin: 35px 0px;">Cadastro de Produto</h1>
     <form #formulario="ngForm">
         <div class="form-group">
             <label for="categoriaSelect">Categoria</label>
             <select class="form-control" id="categoria" name="categoria" ngModel #categoria="ngModel" required categoria
                 [ngClass]="{'is-invalid': categoria.touched && categoria.invalid}">
-                <option value="0">Sanduiche</option>
+                <option value="0" selected>Sanduiche</option>
                 <option value="1">Bebida</option>
             </select>
 

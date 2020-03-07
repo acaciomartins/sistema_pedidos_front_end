@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="row mb-3">
+      <h4 *ngIf="nome">Olá {{nome}}, seja bem vindo!!!</h4>
+    </div>
+  </div>
+  <div class="form-row ">
+    <button type="button " class="btn btn-primary btn-lg btn-block " (click)="cadastrarProduto()"
+      style="margin-bottom: 20px;">Adicionar
+      Produto</button>
+  </div>
+
+  <div class="row align-items-center">
+    <!-- <div class="row mb-3">
+      <h4 *ngIf="nome">Olá {{nome}}, seja bem vindo!!!</h4>
+    </div> -->
+    <div class="row">
+      <h4 *ngIf="listaSanduiches?.length != 0">Lanches</h4>
+      <div class="produto card mb-3" *ngFor="let produto of listaSanduiches; let i = index">
+        <div class="linha row align-items-center">
+          <div class="produto-imagem col-md-2">
+            <img [src]="produto.img" class="card-img" alt="...">
+          </div>
+          <div class="produto-descricao col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{produto.nome_produto}}</h5>
+              <p class="card-text">{{produto.descricao}}</p>
+              <p class="card-text" style="font-weight: bold; font-size: 18px;">
+                {{produto.preco_produto | currency:'BRL':true}}</p>
+            </div>
+          </div>
+          <div class="produto-quantidade col-md-2 " style="align-content: center">
+            <p (click)="alterar(produto)" style="margin: 0px 15px; cursor: pointer;">Alterar</p>
+            <p (click)="excluir(produto)" style="cursor: pointer;">Excluir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---------------------------->
+    <div class="row align-items-center">
+      <h4 *ngIf="listaBebidas?.length != 0">Bebidas</h4>
+      <div class="produto card mb-3" *ngFor="let produto of listaBebidas; let i = index">
+        <div class="linha row align-items-center">
+          <div class="produto-imagem col-md-2">
+            <img [src]="produto.img" class="card-img" alt="...">
+          </div>
+          <div class="produto-descricao col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{produto.nome_produto}}</h5>
+              <p class="card-text">{{produto.descricao}}</p>
+              <p class="card-text" style="font-weight: bold; font-size: 18px;">
+                {{produto.preco_produto | currency:'BRL':true}}</p>
+            </div>
+          </div>
+          <div class="produto-quantidade  col-md-2" style="align-content: center">
+            <p (click)="alterar(produto)" style="margin: 0px 15px; cursor: pointer;">Alterar</p>
+            <p (click)="excluir(produto)" style="cursor: pointer;">Excluir</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- <div class="form-row ">
+    <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="fazerPedido()">Fazer
+      Pedido</button>
+    <button type="button " class="btn btn-primary btn-lg btn-block" (click)="sair()">Sair</button>
+  </div> -->
+
+  <div class="form-row ">
+    <button type="button " class="btn btn-primary btn-lg btn-block " (click)="voltar() ">Voltar</button>
+  </div>
+
+</div>

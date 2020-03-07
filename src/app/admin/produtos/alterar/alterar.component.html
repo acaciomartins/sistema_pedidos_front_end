@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 style="color: blue; text-align: center; margin: 35px 0px;">Alterar Produto</h1>
+  <form [formGroup]="produtoForm">
+    <div class="form-group">
+      <label for="categoriaSelect">Categoria</label>
+      <select class="form-control" formControlName="categoria" id="categoria" name="categoria" required>
+        <option value="0">Sanduiche</option>
+        <option value="1">Bebida</option>
+      </select>
+
+    </div>
+    <div class="form-group">
+      <label for="nomeProduto">Nome produto</label>
+      <input formControlName="nome" class="form-control" id="nomeProduto" name="nomeProduto" required
+        placeholder="Digite o nome do produto">
+    </div>
+
+    <div class="form-group">
+      <label for="valorUnitario">Valor unitário</label>
+      <input type="number" formControlName="valorUnitario" class="form-control" id="valorUnitario" name="valorUnitario"
+        required placeholder="Digite o valor unitário">
+    </div>
+
+    <div class="form-group">
+      <label for="descricaoProduto">Descrição</label>
+      <textarea class="form-control" formControlName="descricaoProduto" id="descricaoProduto" rows="3"
+        name="descricaoProduto" placeholder="Digite a descrição"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="file" name="imageInput" #imageInput (change)="processFile(imageInput)" />
+    </div>
+    <div class="form-row ">
+      <button type="reset " (click)="limpar(produtoForm)" class="btn btn-secondary btn-lg btn-block ">Limpar</button>
+      <!-- <input type="submit" class="btn btn-primary btn-lg btn-block" value="Salvar"> -->
+      <button type="button" class="btn btn-secondary btn-lg btn-block" (click)="alterar(produtoForm)">Salvar</button>
+      <button type="button " class="btn btn-primary btn-lg btn-block " (click)="voltar()">Voltar</button>
+    </div>
+  </form>
+</div>

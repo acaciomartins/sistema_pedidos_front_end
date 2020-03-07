@@ -12,8 +12,9 @@ export class ModalProdutosComponent implements OnInit {
   @Input() aviso;
   @Input() my_modal_title;
   @Input() my_modal_content;
+  @Input() mensagem;
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }

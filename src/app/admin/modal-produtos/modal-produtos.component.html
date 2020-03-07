@@ -2,11 +2,11 @@
     <div class="modal-header">
         <h4 class="modal-title">Aviso</h4>
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click ')">
-    <span aria-hidden="true">&times;</span>
-  </button>
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="modal-body">
-        <p> Produto cadastrado com sucesso!</p>
+        <p> {{mensagem ? mensagem: 'Produto cadastrado com sucesso!' }}</p>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click ')">Fechar</button>

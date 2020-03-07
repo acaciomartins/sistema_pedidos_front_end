@@ -47,8 +47,7 @@ export class CadastroProdutoComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   cadastrar(formulario) {
     console.log('Cadastrar pedido: ', formulario.value);
@@ -63,17 +62,36 @@ export class CadastroProdutoComponent implements OnInit {
     this.http.post(`https://api-sistema-pedidos.herokuapp.com/produto`, produto)
       .subscribe((res) => {
         console.log('Produto Cadastrado com Sucesso!!!', res);
-        this.uploadImaegemProduto(res).then(
-          (val) => {
-            formulario.reset();
-            console.log(val)
-          },
-          (err) => console.error(err)
-        );
+
+        if (this.file && this.file.name) {
+          this.uploadImaegemProduto(res, formulario).then(
+            (val) => {
+              formulario.reset();
+              let dadosModal = {
+                mensagem: "Produto Cadastrado com Sucesso!!!"
+              }
+              this.open(dadosModal);
+              console.log(val)
+            },
+            (err) => {
+              console.error(err)
+              let dadosModal = {
+                mensagem: "Erro ao Cadastrar Produto!!!"
+              }
+              this.open(dadosModal);
+            }
+          );
+        } else {
+          formulario.reset();
+          let dadosModal = {
+            mensagem: "Produto Cadastrado com Sucesso!!!"
+          }
+          this.open(dadosModal);
+        }
       });
   }
 
-  uploadImaegemProduto = (res) => {
+  uploadImaegemProduto = (res, form) => {
 
     return new Promise((resolve, reject) => {
       const formData = new FormData();
@@ -85,18 +103,25 @@ export class CadastroProdutoComponent implements OnInit {
         .subscribe(() => {
           console.log('Produto Cadastrado com Sucesso!!!');
           resolve('done');
-          this.open();
+          let dadosModal = {
+            mensagem: "Produto Cadastrado com Sucesso!!!"
+          }
+          form.setValue({ categoria: 0 })
+          form.reset();
+          this.open(dadosModal);
         });
 
     });
     // this.salvarProduto(produto);
   }
 
-  open() {
-    this.modalService.open(ModalProdutosComponent);
+  open(dadosModal) {
+    const modalRef = this.modalService.open(ModalProdutosComponent);
+
+    modalRef.componentInstance.mensagem = dadosModal.mensagem;
   }
 
   voltar = () => {
-    this.router.navigate(['admin/menu']);
+    this.router.navigate(['admin/produtos/menu']);
   }
 }

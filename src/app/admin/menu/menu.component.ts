@@ -23,7 +23,9 @@ export class MenuComponent implements OnInit {
   }
 
   cadastrarProduto = () => {
-    this.router.navigate(['admin/cadastrar/produtos']);
+    // this.router.navigate(['admin/cadastrar/produtos']);
+    console.error('')
+    this.router.navigate(['admin/produtos/menu']);
   }
 
   sair = () => {
