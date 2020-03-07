@@ -150,7 +150,7 @@ export class CadastroProdutoComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', this.file, this.file.name);
 
-      this.http.post(`https://api-sistema-pedidos.herokuapp.com/file/upload/`, formData)
+      this.http.post(`https://web-sistema-pedidos.herokuapp.com/file/upload/`, formData)
         .subscribe((res) => {
           console.log('Upload com sucesso!!!');
           resolve({ img: this.file.name });
