@@ -63,6 +63,13 @@ export class VendasHomeComponent implements OnInit {
     this.listaProdutos = produtos;
     this.listaProdutos.map((p => {
       let imagem = "../../assets/produtos/uploads/" + p.img;
+
+      if (!p.img && p.categoria == 0) {
+        imagem = "../../assets/images/sanduice.jpeg";
+      } else if (!p.img && p.categoria == 1) {
+        imagem = "../../assets/images/latinha.png";
+      }
+
       p.img = imagem;
       p.quantidade = 0;
     }))

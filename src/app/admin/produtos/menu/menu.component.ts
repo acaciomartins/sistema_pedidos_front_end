@@ -41,7 +41,6 @@ export class MenuProdutosComponent implements OnInit {
 
   populaProdutos = (produtos) => {
     this.listaProdutos = produtos;
-    console.error('sanduice.jpeg: ');
     this.listaProdutos.map((p => {
       let imagem = "../../assets/produtos/uploads/" + p.img;
 
