@@ -30,14 +30,16 @@
             </div>
           </div>
           <div class="produto-quantidade col-md-2 " style="align-content: center">
-            <p (click)="alterar(produto)" style="margin: 0px 15px; cursor: pointer;">Alterar</p>
-            <p (click)="excluir(produto)" style="cursor: pointer;">Excluir</p>
+            <p (click)="alterar(produto)" style="margin: 0px 7px; cursor: pointer; font-weight: bold; font-size: 20px;">
+              Alterar</p>
+            <p (click)="excluir(produto)" style="margin: 0px 7px; cursor: pointer; font-weight: bold; font-size: 20px;">
+              Excluir</p>
           </div>
         </div>
       </div>
     </div>
     <!---------------------------->
-    <div class="row align-items-center">
+    <div class="row">
       <h4 *ngIf="listaBebidas?.length != 0">Bebidas</h4>
       <div class="produto card mb-3" *ngFor="let produto of listaBebidas; let i = index">
         <div class="linha row align-items-center">
@@ -53,8 +55,9 @@
             </div>
           </div>
           <div class="produto-quantidade  col-md-2" style="align-content: center">
-            <p (click)="alterar(produto)" style="margin: 0px 15px; cursor: pointer;">Alterar</p>
-            <p (click)="excluir(produto)" style="cursor: pointer;">Excluir</p>
+            <p (click)="alterar(produto)"
+              style="margin: 0px 15px; cursor: pointer; font-weight: bold; font-size: 20px;">Alterar</p>
+            <p (click)="excluir(produto)" style="cursor: pointer; font-weight: bold; font-size: 20px;">Excluir</p>
           </div>
         </div>
       </div>

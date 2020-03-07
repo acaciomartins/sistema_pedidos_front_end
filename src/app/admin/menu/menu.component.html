@@ -1,7 +1,16 @@
 <div class="container">
+    <div class="form-row " style="margin-top: 50px;">
+        <div class="col-sm">
+            <button type="button " class="btn btn-secondary btn-lg btn-block "
+                style="height: 100px; margin-bottom: 25px;" (click)="pedido()">Pedidos</button>
+        </div>
+        <div class="col-sm">
+            <button type="button " class="btn btn-primary btn-lg btn-block " style="height: 100px; margin-bottom: 25px;"
+                (click)="cadastrarProduto()">Produtos</button>
+        </div>
+    </div>
     <div class="form-row ">
-        <button type="button " class="btn btn-secondary btn-lg btn-block " (click)="pedido()">Pedidos</button>
-        <button type="button " class="btn btn-primary btn-lg btn-block " (click)="cadastrarProduto()">Produtos</button>
-        <button type="button " class="btn btn-info btn-lg btn-block" (click)="sair()">Sair</button>
+        <button type="button " class="btn btn-info btn-lg btn-block" style="height: 100px; margin-bottom: 25px;"
+            (click)="sair()">Sair</button>
     </div>
 </div>
