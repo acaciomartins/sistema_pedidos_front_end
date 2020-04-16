@@ -159,7 +159,7 @@ export class CadastroProdutoComponent implements OnInit {
   }
 
   cadastraProduto = (produto) => {
-    this.http.post(`https://api-sistema-pedidos.herokuapp.com/produto`, produto)
+    this.http.post(`http://localhost:3000/produto`, produto)
       .subscribe(() => {
         console.log('Produto Cadastrado com Sucesso!!!');
         let dadosModal = {

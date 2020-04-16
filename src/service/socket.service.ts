@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SocketService {
-  private url = 'https://api-sistema-pedidos.herokuapp.com';
+  private url = 'http://localhost:3000';
   private socket;
 
   constructor() {

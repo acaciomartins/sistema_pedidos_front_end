@@ -93,7 +93,7 @@ export class AlterarComponent implements OnInit {
       mensagem: "Produto atualizado com sucesso!!!"
 
     }
-    this.http.put(`https://api-sistema-pedidos.herokuapp.com/produto/${produto.id}`, produto)
+    this.http.put(`http://localhost:3000/produto/${produto.id}`, produto)
       .subscribe(() => {
         console.log('atualizado')
         this.limpar(this.produtoForm);

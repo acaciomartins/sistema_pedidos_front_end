@@ -29,7 +29,7 @@ export class VendasLoginComponent implements OnInit {
       localStorage.setItem('cliente', JSON.stringify(nome));
       localStorage.setItem('telefone', JSON.stringify(celular));
 
-      this.http.post(`https://api-sistema-pedidos.herokuapp.com/cliente`,
+      this.http.post(`http://localhost:3000/cliente`,
         {
           "nome_cliente": nome,
           "telefone_cliente": celular

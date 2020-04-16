@@ -33,7 +33,7 @@ export class MenuProdutosComponent implements OnInit {
 
 
   listarProdutos = () => {
-    this.http.get(`https://api-sistema-pedidos.herokuapp.com/produtos`)
+    this.http.get(`http://localhost:3000/produtos`)
       .subscribe((res) => {
         this.populaProdutos(res);
       });
@@ -74,7 +74,7 @@ export class MenuProdutosComponent implements OnInit {
     console.log('excluir', produto)
     //atualizar status para iniciado 1
 
-    this.http.delete(`https://api-sistema-pedidos.herokuapp.com/produto/${produto.id}`)
+    this.http.delete(`http://localhost:3000/produto/${produto.id}`)
       .subscribe(
 
 

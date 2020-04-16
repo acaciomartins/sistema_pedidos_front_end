@@ -53,7 +53,7 @@ export class VendasHomeComponent implements OnInit {
   }
 
   listarProdutos = () => {
-    this.http.get(`https://api-sistema-pedidos.herokuapp.com/produtos`)
+    this.http.get(`http://localhost:3000/produtos`)
       .subscribe((res) => {
         this.populaProdutos(res);
       });
@@ -144,7 +144,7 @@ export class VendasHomeComponent implements OnInit {
   salvarPedido = (modal, pedido, valorTotal) => {
     console.log('salvando pedido');
     let id_cliente = localStorage.getItem('id_cliente');
-    this.http.post(`https://api-sistema-pedidos.herokuapp.com/pedido`,
+    this.http.post(`http://localhost:3000/pedido`,
       {
         "id_cliente": id_cliente,
         "situacao_pedido": 0,

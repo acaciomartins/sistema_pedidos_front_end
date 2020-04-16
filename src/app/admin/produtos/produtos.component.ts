@@ -42,7 +42,7 @@ export class AdminProdutosComponent implements OnInit {
 
   iniciarPedido = () => {
     //atualizar status para iniciado 1 
-    this.http.put(`https://api-sistema-pedidos.herokuapp.com/pedido/${this.pedido.id}`, { "situacao_pedido": 1 })
+    this.http.put(`http://localhost:3000/pedido/${this.pedido.id}`, { "situacao_pedido": 1 })
       .subscribe(() => {
         this.btnIniciar = false;
         this.btnChamarSenha = true;
@@ -51,7 +51,7 @@ export class AdminProdutosComponent implements OnInit {
   }
 
   entregarPedido = () => {
-    this.http.put(`https://api-sistema-pedidos.herokuapp.com/pedido/${this.pedido.id}`, { "situacao_pedido": 2 })
+    this.http.put(`http://localhost:3000/pedido/${this.pedido.id}`, { "situacao_pedido": 2 })
       .subscribe(() => {
         this.btnIniciar = false;
         this.btnChamarSenha = false;

@@ -28,13 +28,13 @@ export class AdminHomeComponent implements OnInit {
   }
 
   listarPedidos = () => {
-    this.http.get('https://api-sistema-pedidos.herokuapp.com/pedido/status/0')
+    this.http.get('http://localhost:3000/pedido/status/0')
       .subscribe(res => this.popularTabelaEmAberto(res));
 
-    this.http.get('https://api-sistema-pedidos.herokuapp.com/pedido/status/1')
+    this.http.get('http://localhost:3000/pedido/status/1')
       .subscribe(res => this.popularTabelaProduzindo(res));
 
-    this.http.get('https://api-sistema-pedidos.herokuapp.com/pedido/status/2')
+    this.http.get('http://localhost:3000/pedido/status/2')
       .subscribe(res => this.popularTabelaEntregues(res));
   }
 
